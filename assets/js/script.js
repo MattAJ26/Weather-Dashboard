@@ -9,6 +9,9 @@ function handleSearchFormSubmit(event) {
     console.error('You need a search input value!');
     return;
   }
+  console.log("city",searchInputVal)
+  apiCallfiveDayForecast(searchInputVal)
+  apiCallCurrentForecast(searchInputVal)
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
