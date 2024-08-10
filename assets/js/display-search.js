@@ -59,3 +59,20 @@ function apiCallCurrentForecast(city) {
       console.error('Error:', error);
     });
 }
+
+function displayPrevForecast(){ 
+  let prevSearch = JSON.parse(localStorage.getItem("weatherforecast")) || []
+  let prevSearchHTML = ""
+  for (let index = 0; index < prevSearch.length; index++) {
+    const element = prevSearch[index];
+    prevSearchHTML += `
+    <button onclick=prevSearchButton(${event})>${element}</button>
+    `
+  }
+  document.getElementById("prevforecast").innerHTML=prevSearchHTML
+}
+
+function prevSearchButton(event){
+ let city = event.target.textContent
+  console.log("City",city)
+}

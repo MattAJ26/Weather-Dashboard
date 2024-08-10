@@ -10,8 +10,12 @@ function handleSearchFormSubmit(event) {
     return;
   }
   console.log("city",searchInputVal)
+  let prevSearch = JSON.parse(localStorage.getItem("weatherforecast")) || []
+  prevSearch.push(searchInputVal)
+  localStorage.setItem("weatherforecast", JSON.stringify(prevSearch))
   apiCallfiveDayForecast(searchInputVal)
   apiCallCurrentForecast(searchInputVal)
+  displayPrevForecast()
 }
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
