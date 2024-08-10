@@ -19,7 +19,7 @@ function apiCallfiveDayForecast(city) {
       for (let index = 0; index < data.list.length; index++) {
         const element = data.list[index];
         const dateString = element.dt_txt.split(" ")
-        if(dateString[1] == "00:00:00"){
+        if (dateString[1] == "00:00:00") {
           cardsHtml += `
            <div class="col-9 col-md-6 d-flex flex-column align-center bg-light p-4 m-3">
            <h5>${dateString[0]}</h5>
@@ -31,7 +31,7 @@ function apiCallfiveDayForecast(city) {
           `
         }
       }
-      document.getElementById("5dayresult-content").innerHTML=cardsHtml
+      document.getElementById("5dayresult-content").innerHTML = cardsHtml
     })
     .catch(error => {
       console.error('There has been a problem with your fetch operation:', error);
@@ -45,8 +45,8 @@ function apiCallCurrentForecast(city) {
     .then(response => response.json())
     .then(data => {
       console.log('Success:', data);
-      document.getElementById("result-text").textContent=city
-      document.getElementById("result-content").innerHTML=`
+      document.getElementById("result-text").textContent = city
+      document.getElementById("result-content").innerHTML = `
       <div class="col-9 col-md-6 d-flex flex-column align-center bg-light p-4 m-3">
       <h5>Temp: ${data.main.temp}°F<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /></h5>
       <h6>Humidity: ${data.main.humidity}%</h6>
@@ -60,19 +60,22 @@ function apiCallCurrentForecast(city) {
     });
 }
 
-function displayPrevForecast(){ 
-  let prevSearch = JSON.parse(localStorage.getItem("weatherforecast")) || []
-  let prevSearchHTML = ""
+function displayPrevForecast() {
+  let prevSearch = JSON.parse(localStorage.getItem("weatherforecast")) || [];
+  let prevSearchHTML = "";
   for (let index = 0; index < prevSearch.length; index++) {
     const element = prevSearch[index];
     prevSearchHTML += `
-    <button onclick=prevSearchButton(${event})>${element}</button>
-    `
+    <button onclick=prevSearchButton('${element}')>${element}</button>
+    `;
   }
-  document.getElementById("prevforecast").innerHTML=prevSearchHTML
+  document.getElementById("prevforecast").innerHTML = prevSearchHTML;
 }
 
-function prevSearchButton(event){
- let city = event.target.textContent
-  console.log("City",city)
+function prevSearchButton(city) {
+ // let city = event.target.textContent
+  console.log("City", city)
+apiCallCurrentForecast(city);
+apiCallfiveDayForecast(city);
 }
+displayPrevForecast();
