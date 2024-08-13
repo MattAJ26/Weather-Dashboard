@@ -28,7 +28,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Installation
 
-Requires Open Weather API Key
+Requires Open Weather API Key at: https://openweathermap.org/
 
 ## Usage
 
