@@ -32,6 +32,9 @@ Requires Open Weather API Key
 
 ## Usage
 
+![image](https://github.com/user-attachments/assets/478f631e-4063-42fd-8a45-dfb518f3b991)
+
+Deployed Site: https://mattaj26.github.io/Weather-Dashboard/
 
 ## License
 
