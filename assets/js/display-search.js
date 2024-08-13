@@ -21,11 +21,11 @@ function apiCallfiveDayForecast(city) {
         const dateString = element.dt_txt.split(" ")
         if (dateString[1] == "00:00:00") {
           cardsHtml += `
-           <div class="col-9 col-md-6 d-flex flex-column align-center bg-light p-4 m-3">
-           <h5>${dateString[0]}</h5>
+           <div class=" d-flex flex-column align-left bg-light p-3 m-3">
+           <h5 style="border-bottom: 2px solid black;">${dateString[0]}</h5>
       <h5>Temp: ${element.main.temp}°F<img src="https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png" /></h5>
-      <h6>Humidity: ${element.main.humidity}%</h6>
-      <h6>Wind Speed: ${element.wind.speed}mph</h6>
+      <h5>Humidity: ${element.main.humidity}%</h6>
+      <h5>Wind Speed: ${element.wind.speed}mph</h6>
 
       </div>
           `
@@ -47,10 +47,10 @@ function apiCallCurrentForecast(city) {
       console.log('Success:', data);
       document.getElementById("result-text").textContent = city
       document.getElementById("result-content").innerHTML = `
-      <div class="col-9 col-md-6 d-flex flex-column align-center bg-light p-4 m-3">
+      <div class="d-flex flex-column align-left bg-light p-1 m-1">
       <h5>Temp: ${data.main.temp}°F<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" /></h5>
-      <h6>Humidity: ${data.main.humidity}%</h6>
-      <h6>Wind Speed: ${data.wind.speed}mph</h6>
+      <h5>Humidity: ${data.main.humidity}%</h6>
+      <h5>Wind Speed: ${data.wind.speed}mph</h6>
 
       </div>
       `
