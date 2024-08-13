@@ -1,3 +1,4 @@
+//script for handling the form submission of the search button
 const searchFormEl = document.querySelector('#search-form');
 
 function handleSearchFormSubmit(event) {

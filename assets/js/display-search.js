@@ -1,7 +1,6 @@
-
 const APIKey = "b0a60f8efad99c4d4adbe735bff7ab4c";
-//const city = document.getElementById("search-input").value;
 
+// function to call the api for the 5 day forecast
 function apiCallfiveDayForecast(city) {
   const queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=imperial`;
   // Weather 
@@ -39,6 +38,7 @@ function apiCallfiveDayForecast(city) {
 
 }
 
+// function to call the api for the current forecast
 function apiCallCurrentForecast(city) {
   const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=imperial`
   fetch(queryURL)
@@ -60,6 +60,7 @@ function apiCallCurrentForecast(city) {
     });
 }
 
+// function to display forecast for previous city searches
 function displayPrevForecast() {
   let prevSearch = JSON.parse(localStorage.getItem("weatherforecast")) || [];
   let prevSearchHTML = "";
@@ -72,8 +73,8 @@ function displayPrevForecast() {
   document.getElementById("prevforecast").innerHTML = prevSearchHTML;
 }
 
+// button to click in order to display the previous forecast data
 function prevSearchButton(city) {
- // let city = event.target.textContent
   console.log("City", city)
 apiCallCurrentForecast(city);
 apiCallfiveDayForecast(city);
