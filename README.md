@@ -28,10 +28,13 @@ THEN I am again presented with current and future conditions for that city
 
 ## Installation
 
-Requires Open Weather API Key
+Requires Open Weather API Key at: https://openweathermap.org/
 
 ## Usage
 
+![image](https://github.com/user-attachments/assets/478f631e-4063-42fd-8a45-dfb518f3b991)
+
+Deployed Site: https://mattaj26.github.io/Weather-Dashboard/
 
 ## License
 
